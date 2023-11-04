@@ -6,6 +6,9 @@ import {
   BiMessageSquareDots,
   BiSearch,
 } from 'react-icons/bi';
+import { SignedIn, SignedOut, UserButton, useClerk } from "@clerk/clerk-react";
+import {neobrutalism} from "@clerk/themes";
+import "../styles/header.css";
 
 function Header({ query, setQuery }) {
   const [selected, setSelected] = useState('Home');
@@ -23,7 +26,7 @@ function Header({ query, setQuery }) {
         <div className='flex items-center'>
           {/* Logo */}
           <div className='h-12 w-12 rounded-full hover:bg-gray-200 flex items-center justify-center cursor-pointer'>
-            {/* <Image src='/logo.png' alt='' height={25} width={25} /> */}
+
           </div>
 
           {/* Home */}
