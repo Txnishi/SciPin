@@ -1,10 +1,57 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+import { ClerkProvider, RedirectToSignIn, SignIn, SignUp, SignedIn, SignedOut } from "@clerk/clerk-react";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+
+if (!import.meta.env.VITE_REACT_APP_CLERK_PUBLISHABLE_KEY) {
+  throw new Error('Missing publishable Key');
+}
+
+const clerkKey = import.meta.env.VITE_REACT_APP_CLERK_PUBLISHABLE_KEY;
+
+
+const ClerkWithRoutes = () => {
+
+  const navigate = useNavigate();
+
+  return (
+    <ClerkProvider
+      publishableKey={clerkKey}
+      navigate={(to) => navigate(to)}
+    >
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route
+          path="/sign-in/*"
+          element={<SignIn redirectUrl={'/protected'} routing="path" path="/sign-in" />}
+        />
+        <Route
+          path="/sign-up/*"
+          element={<SignUp redirectUrl={'/protected'} routing="path" path="/sign-up" />}
+        />
+        <Route
+          path="/protected"
+          element={
+            <>
+              <SignedIn>
+                <App />
+              </SignedIn>
+              <SignedOut>
+                <RedirectToSignIn />
+              </SignedOut>
+            </>
+          }
+        />
+      </Routes>
+    </ClerkProvider>
+  );
+};
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+    <BrowserRouter>
+      <ClerkWithRoutes />
+    </BrowserRouter>
+  </React.StrictMode>
+);
