@@ -1,6 +1,7 @@
 // src/App.js
 import React from 'react';
 import Pin from './components/Pin';
+import Header from './components/Header';
 
 const pins = [
   { title: 'Automatic modulation recognition of DVB-S2X standard-specific with an APSK-based neural network classifier', imageUrl: 'https://th.bing.com/th/id/OIG.fRcLZjbQyqoydxNVDQRg?pid=ImgGn' },
@@ -15,6 +16,7 @@ const pins = [
 function App() {
   return (
     <div className="App">
+      <Header/>
       {pins.map((pin, index) => (
         <Pin key={index} title={pin.title} imageUrl={pin.imageUrl} />
       ))}
