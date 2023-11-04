@@ -26,4 +26,10 @@ body {
   padding: 8px;
 }
 
+a:link{
+  color: white;
+  background: transparent;
+  text-decoration: none;
+}
+
 
