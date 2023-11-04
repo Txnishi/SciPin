@@ -1,4 +1,4 @@
-import Image from 'next/image';
+// import Image from 'next/image';
 import React, { useState } from 'react';
 import {
   BiChevronDown,
@@ -23,7 +23,7 @@ function Header({ query, setQuery }) {
         <div className='flex items-center'>
           {/* Logo */}
           <div className='h-12 w-12 rounded-full hover:bg-gray-200 flex items-center justify-center cursor-pointer'>
-            <Image src='/logo.png' alt='' height={25} width={25} />
+            {/* <Image src='/logo.png' alt='' height={25} width={25} /> */}
           </div>
 
           {/* Home */}
