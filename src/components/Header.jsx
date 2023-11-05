@@ -8,6 +8,8 @@ import {
 } from 'react-icons/bi';
 import { SignedIn, SignedOut, UserButton, useClerk } from "@clerk/clerk-react";
 import {neobrutalism} from "@clerk/themes";
+import axios from 'axios';
+import SearchResults from './SearchResults';
 
 function SignUpButton() {
   const clerk = useClerk();
@@ -34,10 +36,8 @@ function Header({ query, setQuery }) {
   const [selected, setSelected] = useState('Home');
   const [input, setInput] = useState('');
 
-  const handleSearch = () => {
-    if (input === query) return;
-    setQuery(input);
-    console.log(query);
+  const handleSearch = async() => {
+    
   }
 
   return (
