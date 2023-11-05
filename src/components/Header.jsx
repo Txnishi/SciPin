@@ -1,5 +1,5 @@
 // import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   BiChevronDown,
   BiBell,
@@ -55,9 +55,13 @@ function Header() {
         description: 'Another research paper with its own description.',
       },
     ]);
-
-    navigate('/search-results', { state: { results } });
   }
+
+  useEffect(() => {
+    if (results.length > 0) {
+      navigate('/search-results', { state: { results } });
+    }
+  }, [results, navigate]);
 
 
   return (
