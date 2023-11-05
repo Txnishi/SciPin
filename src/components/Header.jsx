@@ -37,6 +37,7 @@ function Header({ query, setQuery }) {
   const handleSearch = () => {
     if (input === query) return;
     setQuery(input);
+    console.log(query);
   }
 
   return (
@@ -81,7 +82,7 @@ function Header({ query, setQuery }) {
             <BiChevronDown className='h-6 w-6' />
           </div>
 
-          {/* On Small Screens */}
+       {/* On Small Screens */}   
           <div className='flex items-center sm:hidden text-semibold px-4 py-3 rounded-full cursor-pointer font-semibold hover-bg-gray-200'>
             <h3>Home</h3>
             <BiChevronDown className='h-6 w-6' />
