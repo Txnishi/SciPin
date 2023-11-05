@@ -23,7 +23,7 @@ const pins = [
 function App() {
   return (
     <div className="App">
-      <Header/>
+      <Header />
       <div className="masonry ml-5 mt-10 mr-5">
 
           {pins.map((pin, index) => (
