@@ -66,7 +66,7 @@ function Header() {
     .then(response => response.json())
     .then(data => {
       // Handle the data received from the API
-      console.log('API response:', data);
+      setResults(data);
       // Update state or do something with the data
     })
     .catch(error => {
