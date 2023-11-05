@@ -1,6 +1,10 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 
-const SearchResultPage = ({ results }) => {
+const SearchResultPage = () => {
+  const { state } = useLocation();
+  const results = state.results || [];
+
   return (
     <div>
       <h2>Search Results</h2>

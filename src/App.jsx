@@ -1,8 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Pin from './components/Pin';
 import Header from './components/Header';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import SearchResultPage from './pages/SearchResultPage';
 
 
 
@@ -26,10 +24,6 @@ const pins = [
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/">
-
           <div className="App">
             <Header />
             <div className="masonry ml-5 mt-10 mr-5">
@@ -40,14 +34,6 @@ function App() {
 
             </div>
           </div>
-
-        </Route>
-        <Route path='/search-results'>
-          <SearchResultPage results={results}/>
-              
-        </Route>
-      </Switch>
-    </Router>
   );
 }
 

@@ -9,7 +9,7 @@ import {
 import { SignedIn, SignedOut, UserButton, useClerk } from "@clerk/clerk-react";
 import {neobrutalism} from "@clerk/themes";
 import axios from 'axios';
-import {Redirect} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 function SignUpButton() {
   const clerk = useClerk();
@@ -32,13 +32,33 @@ function SignInButton() {
 }
 
 
-function Header({ query, setQuery }) {
+function Header() {
   const [selected, setSelected] = useState('Home');
+  const [results, setResults] = useState([]);
   const [input, setInput] = useState('');
+  const [query, setQuery] = useState('');
+  const navigate = useNavigate();
 
   const handleSearch = async() => {
-    
+    setQuery(input);
+    setResults([
+      {
+        title: 'Research Paper 1',
+        description: 'This is the first research paper with a description.',
+      },
+      {
+        title: 'Research Paper 2',
+        description: 'This is the second research paper with a different description.',
+      },
+      {
+        title: 'Research Paper 3',
+        description: 'Another research paper with its own description.',
+      },
+    ]);
+
+    navigate('/search-results', { state: { results } });
   }
+
 
   return (
     <div className='w-full h-20 border rounded-lg shadow-md px-5 py-1 flex items-center justify-center'>
