@@ -1,6 +1,10 @@
 import React from 'react';
 import Pin from './components/Pin';
 import Header from './components/Header';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import SearchResultPage from './pages/SearchResultPage';
+
+
 
 const pins = [
   { title: 'Automatic modulation recognition of DVB-S2X standard-specific with an APSK-based neural network classifier', imageUrl: 'https://th.bing.com/th/id/OIG.fRcLZjbQyqoydxNVDQRg?pid=ImgGn', articleLink: 'https://www.sciencedirect.com/science/article/abs/pii/S0263224119311212' },
@@ -22,16 +26,28 @@ const pins = [
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <div className="masonry ml-5 mt-10 mr-5">
+    <Router>
+      <Switch>
+        <Route exact path="/">
 
-          {pins.map((pin, index) => (
-            <Pin key={index} title={pin.title} imageUrl={pin.imageUrl} articleLink={pin.articleLink} />
-          ))}
+          <div className="App">
+            <Header />
+            <div className="masonry ml-5 mt-10 mr-5">
 
-      </div>
-    </div>
+                {pins.map((pin, index) => (
+                  <Pin key={index} title={pin.title} imageUrl={pin.imageUrl} articleLink={pin.articleLink} />
+                ))}
+
+            </div>
+          </div>
+
+        </Route>
+        <Route path='/search-results'>
+          <SearchResultPage results={results}/>
+              
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 

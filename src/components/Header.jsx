@@ -9,7 +9,7 @@ import {
 import { SignedIn, SignedOut, UserButton, useClerk } from "@clerk/clerk-react";
 import {neobrutalism} from "@clerk/themes";
 import axios from 'axios';
-import SearchResults from './SearchResults';
+import {Redirect} from 'react-router-dom';
 
 function SignUpButton() {
   const clerk = useClerk();

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SearchResults = ({ results }) => {
+const SearchResultPage = ({ results }) => {
   return (
     <div>
       <h2>Search Results</h2>
@@ -18,4 +18,4 @@ const SearchResults = ({ results }) => {
   );
 };
 
-export default SearchResults;
+export default SearchResultPage;
