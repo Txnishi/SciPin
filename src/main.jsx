@@ -45,7 +45,7 @@ const ClerkWithRoutes = () => {
             </>
           }
         />
-      <Route path="/search-results" element={<SearchResultPage />} />
+      {/* <Route path="/search-results" element={<SearchResultPage />} /> */}
       </Routes>
     </ClerkProvider>
   );

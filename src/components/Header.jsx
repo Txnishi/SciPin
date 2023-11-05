@@ -32,28 +32,23 @@ function SignInButton() {
 }
 
 function Header() {
-  const [query, setQuery] = useState("");
-  const [selected, setSelected] = useState("Home");
-  const [input, setInput] = useState("");
-
-function Header() {
   const [selected, setSelected] = useState('Home');
-  const [results, setResults] = useState([]);
+  const [results, setResults] = useState({});
   const [input, setInput] = useState('');
   const [query, setQuery] = useState('');
   const navigate = useNavigate();
 
   const handleSearch = async() => {
     setQuery(input);
-    console.log('Search query:', query); // Check the query in console
+     // Check the query in console
     // Add the API call function here with the query parameter
     fetchSearchResults(query);
+
   };
 
   const handleEnter = (e) => {
     if (e.key === "Enter") {
-      // handleSearch();
-      // fetchSearchResults(searchQuery);
+      handleSearch();
     }
   };
 
@@ -66,7 +61,8 @@ function Header() {
     .then(response => response.json())
     .then(data => {
       // Handle the data received from the API
-      setResults(data);
+      // setResults([data]);
+      console.log(data);
       // Update state or do something with the data
     })
     .catch(error => {
@@ -88,15 +84,17 @@ function Header() {
     //     description: 'Another research paper with its own description.',
     //   },
     // ]);
-  }
 
-  useEffect(() => {
-    if (results.length > 0) {
-      navigate('/search-results', { state: { results } });
-    }
-  }, [results, navigate]);
+  // useEffect(() => {
+  //   if (results.length > 0) {
+  //     navigate('/search-results', { state: { results } });
+  //   }
+  // }, [results, navigate]);
 
-
+  // useEffect(() => {
+  //   console.log('Search query:', query);
+  //   fetchSearchResults(query);
+  // }, [query]);
   return (
     <div className="w-full h-20 border rounded-lg shadow-md px-5 py-1 flex items-center justify-center">
       <div className="w-full h-16 flex items-center">
@@ -150,18 +148,12 @@ function Header() {
           />
           <input
             onChange={(e) => setInput(e.target.value)}
-            onKeyPress={handleEnter}
+            // onKeyDown={}{handleEnter}
             type="text"
             id="q"
             placeholder="Search"
             className="bg-[#e9e9e9] ml-2 h-full w-full placeholder-[#000000] placeholder-text-lg outline-none text-[#000000]"
           />
-          <button
-            onClick={handleSearch}
-            className="ml-2 px-3 py-1 bg-blue-500 text-white rounded"
-          >
-            Search
-          </button>
         </div>
 
         {/* Right */}
