@@ -15,7 +15,7 @@ const pins = [
 function App() {
   return (
     <div className="App">
-      <Header/>
+      <Header />
       {pins.map((pin, index) => (
         <Pin key={index} title={pin.title} imageUrl={pin.imageUrl} articleLink={pin.articleLink} />
       ))}
