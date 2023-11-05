@@ -36,3 +36,30 @@ a:link{
 }
 
 
+/* Add this to your CSS or a stylesheet */
+.my-masonry-grid {
+  display: flex;
+  margin-left: -16px; /* Adjust as needed */
+  width: auto;
+}
+
+.my-masonry-grid_column {
+  padding-left: 16px; /* Adjust as needed */
+  background-clip: padding-box;
+}
+
+/* Optional: Add responsive styles to customize the layout for different screen sizes */
+@media (max-width: 1100px) {
+  .my-masonry-grid {
+    display: flex;
+    margin-left: -12px;
+    width: auto;
+  }
+
+  .my-masonry-grid_column {
+    padding-left: 12px;
+    background-clip: padding-box;
+  }
+
+  /* Add similar styles for other breakpoints as needed */
+}

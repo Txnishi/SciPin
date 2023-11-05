@@ -1,16 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { IoIosHeart } from 'react-icons/io';
 
-const Pin = ({ title, imageUrl }) => {
+const Pin = ({ title, imageUrl, articleLink }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
-    <>
-        <div className="pin" >
-          <a href="https://www.sciencedirect.com/science/article/abs/pii/S0263224119311212">
-            <img src={imageUrl} alt={title} />
-            <p>{title}</p>
-          </a>
-        </div>
-    </>
-    
+    <div
+      className="pin cursor-pointer relative group"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <a href={articleLink}>
+        <img src={imageUrl} alt={title} />
+        <p className='font-semibold hidden sm:inline-flex items-center'>{title}</p>
+        {isHovered && (
+          <div className="icon-overlay absolute top-4 left-4 p-2 opacity-70">
+              <IoIosHeart className="heart-icon text-black-500 text-2xl" />
+          </div>
+        )}
+      </a>
+    </div>
   );
 };
 

@@ -1,10 +1,9 @@
-// src/App.js
 import React from 'react';
 import Pin from './components/Pin';
 import Header from './components/Header';
 
 const pins = [
-  { title: 'Automatic modulation recognition of DVB-S2X standard-specific with an APSK-based neural network classifier', imageUrl: 'https://th.bing.com/th/id/OIG.fRcLZjbQyqoydxNVDQRg?pid=ImgGn' },
+  { title: 'Automatic modulation recognition of DVB-S2X standard-specific with an APSK-based neural network classifier', imageUrl: 'https://th.bing.com/th/id/OIG.fRcLZjbQyqoydxNVDQRg?pid=ImgGn', articleLink: 'https://www.sciencedirect.com/science/article/abs/pii/S0263224119311212' },
   { title: 'Effects of Climate Change on Polar Bears2', imageUrl: 'https://i.pinimg.com/564x/22/73/f4/2273f41681d3f2ed7148688bd57c0ed1.jpg' },
   { title: 'The Lancet Series on Health and Climate Change', imageUrl: 'https://cdn.discordapp.com/attachments/1160273839876485140/1170447877932318740/healthcare_research_paper.jpeg?ex=65591387&is=65469e87&hm=4c957bdae81b57376ffc164ab60a27a46393cdfa4ca8b5d0dc9187c0a9d6e2c5&' },
   { title: 'The Black-Scholes-Merton Model', imageUrl: 'https://cdn.discordapp.com/attachments/1160273839876485140/1170447878192369705/finance_paper.jpeg?ex=65591388&is=65469e88&hm=fd1f39aa5fd30988c6894c7be2f0d8ea095003364437135d31982e514876e0af&' },
@@ -18,7 +17,7 @@ function App() {
     <div className="App">
       <Header/>
       {pins.map((pin, index) => (
-        <Pin key={index} title={pin.title} imageUrl={pin.imageUrl} />
+        <Pin key={index} title={pin.title} imageUrl={pin.imageUrl} articleLink={pin.articleLink} />
       ))}
     </div>
   );
