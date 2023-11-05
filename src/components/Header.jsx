@@ -8,7 +8,27 @@ import {
 } from 'react-icons/bi';
 import { SignedIn, SignedOut, UserButton, useClerk } from "@clerk/clerk-react";
 import {neobrutalism} from "@clerk/themes";
-import "../styles/header.css";
+
+function SignUpButton() {
+  const clerk = useClerk();
+
+  return (
+    <button className="sign-up-btn" onClick={() => clerk.openSignUp({})}>
+      Sign up
+    </button>
+  );
+}
+
+function SignInButton() {
+  const clerk = useClerk();
+
+  return (
+    <button className="sign-in-btn" onClick={() => clerk.openSignIn({})}>
+      Sign in
+    </button>
+  );
+}
+
 
 function Header({ query, setQuery }) {
   const [selected, setSelected] = useState('Home');
@@ -92,15 +112,23 @@ function Header({ query, setQuery }) {
             <BiMessageSquareDots className='h-7 w-7 text-[#767676] font-bold' />
           </div>
 
-          {/* <div className='h-full w-12 flex items-center justify-center hover-bg-gray-100 rounded-full cursor-pointer'>
-            <Image
-              src='/salman.jpeg'
-              alt=''
-              height={30}
-              width={30}
-              className='rounded-full'
-            />
-          </div> */}
+        <SignedOut>
+        <ul className=" flex space-x-4 ">
+            <li className='border border-blue-100 p-2 rounded-md overflow-hidden transition-all hover:bg-blue-100 hover:shadow-md'>
+              <SignUpButton />
+            </li>
+
+            <li className='border border-blue-100 p-2 rounded-md overflow-hidden transition-all hover:bg-blue-100 hover:shadow-md'>
+              <SignInButton />
+            </li>
+          </ul>
+        </SignedOut>
+        <SignedIn>
+          <UserButton 
+            className="user"
+            afterSignOutUrl="/" 
+          />
+        </SignedIn>
         </div>
       </div>
     </div>
