@@ -3,16 +3,23 @@
 @tailwind utilities;
 
 /* src/index.css */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
 body {
   background-color: #111;
   color: #fff;
   font-family: Arial, sans-serif;
 }
 
+
 .pin {
   margin: 8px;
   width: 200px;
-  display: inline-block;
+  display: inline-flex;
   background-color: #333;
   border-radius: 8px;
   overflow: hidden;
@@ -37,29 +44,43 @@ a:link{
 
 
 /* Add this to your CSS or a stylesheet */
-.my-masonry-grid {
-  display: flex;
-  margin-left: -16px; /* Adjust as needed */
-  width: auto;
+.h-20 {
+    height: 3.8rem;
 }
 
-.my-masonry-grid_column {
-  padding-left: 16px; /* Adjust as needed */
-  background-clip: padding-box;
+*, ::before, ::after {
+    box-sizing: border-box;
+    border-width: 0;
+    border-style: solid;
+    border-color: #767676;
 }
 
-/* Optional: Add responsive styles to customize the layout for different screen sizes */
-@media (max-width: 1100px) {
-  .my-masonry-grid {
-    display: flex;
-    margin-left: -12px;
-    width: auto;
-  }
+/* Add this CSS code in your custom CSS file or tailwind.css */
 
-  .my-masonry-grid_column {
-    padding-left: 12px;
-    background-clip: padding-box;
-  }
+.masonry {
+  column-count: 6;
+}
 
-  /* Add similar styles for other breakpoints as needed */
+@media (min-width: 600px) {
+  .masonry {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 768px) {
+  .masonry {
+    column-count: 4;
+  }
+}
+
+@media (min-width: 796px) {
+  .masonry {
+    column-count: 3;
+  }
+}
+
+@media (min-width: 1024px) {
+  .masonry {
+    column-count: 6;
+  }
 }
